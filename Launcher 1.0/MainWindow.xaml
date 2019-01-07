@@ -8,7 +8,10 @@
         Title="Launcher 1.0"
         Height="450" Width="800">
     <Grid>
-        <WrapPanel x:Name="iconPanel" Margin="25" Background="#FF0C0C0C" Orientation="Horizontal"/>
+        <Grid.Background>
+            <ImageBrush ImageSource="http://www.freebiesgallery.com/wp-content/uploads/2014/02/blurred-background-2.jpg"/>
+        </Grid.Background>
+        <WrapPanel x:Name="iconPanel" Margin="25" Orientation="Horizontal"/>
         <Button Width="200" Height="40" VerticalAlignment="Bottom" Click="selectPath_click">Select .csproj file</Button>
     </Grid>
 </Window>
