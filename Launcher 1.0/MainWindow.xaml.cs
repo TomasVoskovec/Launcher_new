@@ -132,15 +132,17 @@ namespace Launcher_1._0
 
             try
             {
-                OpenFileDialog x = new OpenFileDialog();
-                x.Multiselect = false;
-                x.Filter = "All Files (*.*)|*.*";
-                x.ShowDialog();
-                string result = x.FileName;
+                string result ="";
 
-                string destPath = System.IO.Path.GetDirectoryName(result);
-                string destFileName = System.IO.Path.GetFileName(result);
-                string destFilePath = destPath + "/" + thisFileName;
+                using (System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog())
+                {
+                    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        result = dialog.SelectedPath;
+                    }
+                }
+
+                string destFilePath = result + "/" + thisFileName;
 
                 if (File.Exists(thisFilePath))
                 {
@@ -154,7 +156,7 @@ namespace Launcher_1._0
                             if (File.Exists(destFilePath))
                             {
                                 copyNum++;
-                                destFilePath = destPath + "/" + thisFileName.Replace(".exe", "(" + copyNum.ToString() + ").exe");
+                                destFilePath = result + "/" + thisFileName.Replace(".exe", "(" + copyNum.ToString() + ").exe");
                             }
                             else
                             {
@@ -192,15 +194,17 @@ namespace Launcher_1._0
 
             try
             {
-                OpenFileDialog x = new OpenFileDialog();
-                x.Multiselect = false;
-                x.Filter = "All Files (*.*)|*.*";
-                x.ShowDialog();
-                string result = x.FileName;
+                string result = "";
 
-                string destPath = System.IO.Path.GetDirectoryName(result);
-                string destFileName = System.IO.Path.GetFileName(result);
-                string destFilePath = destPath + "/" + thisFileName;
+                using (System.Windows.Forms.FolderBrowserDialog dialog = new System.Windows.Forms.FolderBrowserDialog())
+                {
+                    if (dialog.ShowDialog() == System.Windows.Forms.DialogResult.OK)
+                    {
+                        result = dialog.SelectedPath;
+                    }
+                }
+
+                string destFilePath = result + "/" + thisFileName;
 
                 if (File.Exists(thisFilePath))
                 {
